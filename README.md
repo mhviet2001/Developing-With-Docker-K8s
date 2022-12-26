@@ -10,6 +10,8 @@
 
 - ### webapp.yml
 
+&nbsp;
+
 Step 1: Start and check status your Minikube cluster
 
     minikube start
@@ -55,6 +57,8 @@ Step 5: Stop your Minikube cluster
 Step 6: Delete all of the Minikube clusters
 
     minikube delete --all
+
+&nbsp;
 
 > :warning: **Known issue - Minikube IP not accessible**
 
