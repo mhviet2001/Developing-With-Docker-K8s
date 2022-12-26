@@ -2,10 +2,13 @@
 
 ## K8s manifest files
 
-- mongo-config.yml
-- mongo-secret.yml
-- mongo.yml
-- webapp.yml
+- ### mongo-config.yml
+
+- ### mongo-secret.yml
+
+- ### mongo.yml
+
+- ### webapp.yml
 
 Step 1: Start and check status your Minikube cluster
 
