@@ -2,13 +2,13 @@
 
 ## K8s manifest files
 
-- ### mongo-config.yml
+- ### mongo-config.yaml
 
-- ### mongo-secret.yml
+- ### mongo-secret.yaml
 
-- ### mongo.yml
+- ### mongo.yaml
 
-- ### webapp.yml
+- ### webapp.yaml
 
 &nbsp;
 
@@ -19,13 +19,13 @@ Step 1: Start and check status your Minikube cluster
 
 Step 2: Create the ConfigMap and the Secrets
 
-    kubectl apply -f mongo-config.yml
-    kubectl apply -f mongo-secret.yml
+    kubectl apply -f mongo-config.yaml
+    kubectl apply -f mongo-secret.yaml
 
 Step 3: Create the Deployment and defining the Service
 
-    kubectl apply -f mongo.yml
-    kubectl apply -f webapp.yml
+    kubectl apply -f mongo.yaml
+    kubectl apply -f webapp.yaml
 
 Step 4: Check the information of each component in K8s
 
