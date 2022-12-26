@@ -65,3 +65,9 @@ Step 6: Delete all of the Minikube clusters
 If you can't access the NodePort service webapp with `MinikubeIP:NodePort`, execute the following command:
 
     minikube service webapp-service
+
+&nbsp;
+
+## Links
+- webapp image on Docker Hub: https://hub.docker.com/r/hoangviet2001/demo-app
+- mongo image on Docker Hub: https://hub.docker.com/_/mongo
