@@ -1,4 +1,73 @@
-# Developing with K8s
+# Developing with Docker and K8s
+
+## This demo app shows a simple user profile app set up using
+
+- ### index.html with pure js and css styles
+
+- ### nodejs backend with express module
+
+- ### mongodb for data storage
+
+## With Docker
+
+### Step 1: Create docker network
+
+    docker network create mongo-network 
+
+### Step 2: Start mongodb
+
+    docker run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network mongo    
+
+### Step 3: Start mongo-express
+
+    docker run -d -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password --net mongo-network --name mongo-express -e ME_CONFIG_MONGODB_SERVER=mongodb mongo-express   
+
+_NOTE: Creating docker-network in optional. You can start both containers in a default network. In this case, just emit `--net` flag in `docker run` command_
+
+### Step 4: Open mongo-express from browser
+
+    http://localhost:8081
+
+### Step 5: Create `user-account` _db_ and `users` _collection_ in mongo-express
+
+### Step 6: Start your nodejs application locally
+
+    cd app
+    npm install 
+    node server.js
+
+### Step 7: Access you nodejs application UI from browser
+
+    http://localhost:3000
+
+## With Docker Compose
+
+### Step 1: Start mongodb and mongo-express
+
+    docker-compose -f docker-compose.yml up
+
+### Step 2: Open mongo-express from browser
+
+    http://localhost:8080
+
+### Step 3: Start your nodejs application locally
+
+    cd app
+    npm install
+    node server.js
+
+### Step 4: Access you nodejs application UI from browser
+
+    http://localhost:3000
+
+## Build a docker image from the application and push to DockerHub
+
+    docker build -t hoangviet2001/demo-app:latest .     
+    docker push hoangviet2001/demo-app:latest  
+
+The dot "." at the end of the command denotes location of the Dockerfile.
+
+&nbsp;
 
 ## K8s manifest files
 
@@ -10,24 +79,22 @@
 
 - ### webapp.yaml
 
-&nbsp;
-
-Step 1: Start and check status your Minikube cluster
+### Step 1: Start and check status your Minikube cluster
 
     minikube start
     minikube status
 
-Step 2: Create the ConfigMap and the Secrets
+### Step 2: Create the ConfigMap and the Secrets
 
     kubectl apply -f mongo-config.yaml
     kubectl apply -f mongo-secret.yaml
 
-Step 3: Create the Deployment and defining the Service
+### Step 3: Create the Deployment and defining the Service
 
     kubectl apply -f mongo.yaml
     kubectl apply -f webapp.yaml
 
-Step 4: Check the information of each component in K8s
+### Step 4: Check the information of each component in K8s
 
 - Check basic information of each component in K8s
 
@@ -50,11 +117,11 @@ Step 4: Check the information of each component in K8s
 
         kubectl logs {pod-name}
 
-Step 5: Stop your Minikube cluster
+### Step 5: Stop your Minikube cluster
 
     minikube stop
 
-Step 6: Delete all of the Minikube clusters
+### Step 6: Delete all of the Minikube clusters
 
     minikube delete --all
 
@@ -69,5 +136,6 @@ If you can't access the NodePort service webapp with `MinikubeIP:NodePort`, exec
 &nbsp;
 
 ## Links
-- webapp image on Docker Hub: https://hub.docker.com/r/hoangviet2001/demo-app
-- mongo image on Docker Hub: https://hub.docker.com/_/mongo
+
+- webapp image on Docker Hub: <https://hub.docker.com/layers/hoangviet2001/demo-app/latest/images/sha256-3b00b5fa786dc9f9846488c58c9100ad25e1f8eaa13b401e95a23cd4df3960c7?tab=layers>
+- mongo image on Docker Hub: <https://hub.docker.com/_/mongo>
