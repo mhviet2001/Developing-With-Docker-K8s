@@ -1,12 +1,6 @@
 # Developing with Docker and K8s
 
-## This demo app shows a simple user profile app set up using:
-
-- ### index.html with pure js and css styles
-
-- ### nodejs backend with express module
-
-- ### mongodb for data storage
+## This demo app shows a simple user profile app set up using Docker and K8s
 
 ## With Docker
 
@@ -44,7 +38,7 @@ _NOTE: Creating docker-network in optional. You can start both containers in a d
 
 ### Step 1: Start mongodb and mongo-express
 
-    docker-compose -f docker-compose.yml up
+    docker-compose -f docker-compose.yaml up
 
 ### Step 2: Open mongo-express from browser
 
@@ -67,17 +61,7 @@ _NOTE: Creating docker-network in optional. You can start both containers in a d
 
 The dot "." at the end of the command denotes location of the Dockerfile.
 
-&nbsp;
-
-## K8s manifest files
-
-- ### mongo-config.yaml
-
-- ### mongo-secret.yaml
-
-- ### mongo.yaml
-
-- ### webapp.yaml
+## With K8s
 
 ### Step 1: Start and check status your Minikube cluster
 
