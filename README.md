@@ -2,6 +2,8 @@
 
 ## This demo app shows a simple user profile app set up using Docker and K8s
 
+![Demo App](/media/demo_app.png "Demo App")
+
 ## With Docker
 
 ### Step 1: Create docker network
